@@ -13,7 +13,7 @@ It features a clean and modern UI with support for both light and dark themes.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/myapp.git
+   git clone https://github.com/houdabenabdellah/Dashboard_UI.git
 2.Navigate to the project directory:
   cd myapp
 3.Install dependencies:
