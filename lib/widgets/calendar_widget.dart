@@ -38,24 +38,24 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             const SizedBox(height: 10),
             TableCalendar(
               firstDay: DateTime.utc(
-                  2025, 1, 1), // First date the calendar can display
+                  2025, 1, 1), 
               lastDay: DateTime.utc(
-                  2025, 12, 31), // Last date the calendar can display
+                  2025, 12, 31),
               focusedDay: _focusedDay.isBefore(DateTime.utc(2025, 1, 1))
                   ? DateTime.utc(2025, 1, 1)
                   : (_focusedDay.isAfter(DateTime.utc(2025, 12, 31))
                       ? DateTime.utc(2025, 12, 31)
-                      : _focusedDay), // Ensure focusedDay is within range
+                      : _focusedDay), 
               calendarFormat:
-                  _calendarFormat, // Calendar format (month, week, etc.)
+                  _calendarFormat,
               onFormatChanged: (format) {
                 setState(() {
-                  _calendarFormat = format; // Update calendar format
+                  _calendarFormat = format; 
                 });
               },
               onPageChanged: (focusedDay) {
                 setState(() {
-                  _focusedDay = focusedDay; // Update focused date
+                  _focusedDay = focusedDay; 
                 });
               },
               calendarStyle: CalendarStyle(

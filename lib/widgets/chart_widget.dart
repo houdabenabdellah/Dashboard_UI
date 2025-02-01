@@ -23,9 +23,9 @@ class _LineChartWidgetState extends State<LineChartWidget> {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Card(
-        elevation: 8, // Add shadow for a stylish look
+        elevation: 8, 
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16), // Rounded corners
+          borderRadius: BorderRadius.circular(16), 
         ),
         child: Container(
           decoration: BoxDecoration(

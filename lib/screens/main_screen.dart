@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_dashboard/screens/analytics_screen.dart';
 import 'package:ui_dashboard/screens/dashboard_screen.dart';
+import 'package:ui_dashboard/screens/login_screen.dart';
 import 'package:ui_dashboard/screens/profil_screen.dart';
 import 'package:ui_dashboard/screens/rendezvous_screen.dart';
 
@@ -17,7 +18,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0; // Track the selected index for navigation
+  int _selectedIndex = 0; 
 
   // List of screens to display
   final List<Widget> _screens = [
@@ -33,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
     final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
 
     return Scaffold(
-      key: GlobalKey<ScaffoldState>(), // Fix for Drawer Access
+      key: GlobalKey<ScaffoldState>(), 
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Container(
@@ -62,13 +63,16 @@ class _MainScreenState extends State<MainScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 20.0),
             child: Builder(
-              // Fix: Ensures correct Scaffold context
+              
               builder: (context) => PopupMenuButton<String>(
                 onSelected: (value) {
                   if (value == 'login') {
-                    // Navigator.pushNamed(context, '/login'); // Implement the login route
+                    Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => const LoginScreen()),
+);
                   } else if (value == 'settings') {
-                    Scaffold.of(context).openDrawer(); // Opens drawer correctly
+                    Scaffold.of(context).openDrawer(); 
                   }
                 },
                 itemBuilder: (context) => [
@@ -78,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
                       children: [
                         Icon(Icons.login,
                             color:
-                                isDarkMode ? Colors.white70 : Colors.black87),
+                                isDarkMode ? Colors.black87 : Colors.white70),
                         const SizedBox(width: 10),
                         const Text('Login'),
                       ],
@@ -90,7 +94,7 @@ class _MainScreenState extends State<MainScreen> {
                       children: [
                         Icon(Icons.settings,
                             color:
-                                isDarkMode ? Colors.white70 : Colors.black87),
+                                isDarkMode ?Colors.black87 : Colors.white70 ),
                         const SizedBox(width: 10),
                         const Text('Settings'),
                       ],
@@ -101,7 +105,7 @@ class _MainScreenState extends State<MainScreen> {
                   backgroundImage: AssetImage('images/profil.jpg'),
                   radius: 20,
                 ),
-                color: isDarkMode ? const Color(0xFF5C5470) : Colors.white,
+                color: isDarkMode ? Colors.white : const Color(0xFF5C5470),
               ),
             ),
           ),
@@ -146,19 +150,19 @@ class _MainScreenState extends State<MainScreen> {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Help'),
+                  Text('Help & Support'),
                 ],
               ),
             ),
           ],
         ),
       ),
-      body: _screens[_selectedIndex], // Use the selected screen
+      body: _screens[_selectedIndex], 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {
-            _selectedIndex = index; // Update the selected index
+            _selectedIndex = index; 
           });
         },
         items: const [
